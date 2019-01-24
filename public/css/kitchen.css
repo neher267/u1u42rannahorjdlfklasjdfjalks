@@ -5,6 +5,9 @@
 .round{
     border-radius: 4px;
 }
+.side-view{
+    margin-top: 7em;
+}
 
 @media (min-width: 320px) and (max-width: 480px) {
     #manage_qty{
@@ -20,7 +23,15 @@
     .alert-success{
 		color: #fff;
 		background-color: #AD1457;
-	}	        
+	}	 
+
+    .bootstrap-tab-text-grid-right {
+        width: 88%;
+    }  
+
+    .side-view{
+        margin-top: 1em;
+    }     
 }
 .dropdown-menu {  
 	top: 20px;
