@@ -8,6 +8,11 @@
         </ul>
         <p class="comment-color">Lorem ipsum dolor sit amet, consectetur adipisicing elPellentesque.</p>
     </div>
+    <div class="bootstrap-tab-text-grid-right">
+        <ul>
+            <li><a href="#">Rpelay</a>  &bull; 10 s In Reply to Admin</li>
+        </ul>       
+    </div>
     <div class="clearfix"> </div>
 </div>
 
