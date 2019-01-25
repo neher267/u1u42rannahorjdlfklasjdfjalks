@@ -154,7 +154,7 @@
                             <div class="tab3">
                                 <div class="single_page">
                                     <div class="bootstrap-tab-text-grids">
-                                        @include('frontend.partials._comments')
+                                        @include('frontend.partials._comments',['comments'=>$product->comments])
                                     </div>
 
                                 </div>
