@@ -6,7 +6,7 @@
     <img src="{{asset($user->profile_image)}}" style="height: 32px; width: 32px; border-radius: 50%;">
     @endif
     <div class="bootstrap-tab-text-grid-right">
-        <form method="post" action="{{route('comment.replay.store', [$product, $comment])}}">
+        <form method="post" action="{{route('replay.replay.store', [$product, $comment, $user])}}">
             {{ csrf_field() }}
 
             <input class="form-control" type="text" name="body" style="border-radius: 18px; padding: 4px 10px;" placeholder="Write a replay..">

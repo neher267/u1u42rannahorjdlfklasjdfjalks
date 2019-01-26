@@ -20,10 +20,13 @@
             <li><a href="#">Rpelay</a> &bull; 10 s</li>
         </ul>       
     </div>
+    @include('frontend.partials._replay-form', ['comment'=>$comment])
+    @foreach($comment->replies as $replay)
+        @include('frontend.partials._comments2', ['replay'=>$replay])
+        @include('frontend.partials._replay-replay-form', ['comment'=>$comment, 'user'=>$replay->comment->user->id])    
+    @endforeach
     <div class="clearfix"> </div>
 </div>
 @endforeach
-@include('frontend.partials._replay-form')
-@include('frontend.partials._comments2')
-@include('frontend.partials._replay-form')
+
 

@@ -16,6 +16,27 @@ class CommentsController extends Controller
     	$comment->user()->associate(Sentinel::getUser());
     	$product->comments()->save($comment);
     	return back();
+    }
+
+    public function replay_store(Product $product, Comment $comment, Request $request)
+    {
+    	$replay = new Comment;
+    	$replay->body = $request->body;
+    	$replay->user()->associate(Sentinel::getUser());
+    	$replay->parent_id = $comment->id;
+    	$product->comments()->save($replay);
+    	return back();
+
+    }
+
+    public function replay_replay_store(Product $product, Comment $comment, $user_id, Request $request)
+    {
+    	$replay = new Comment;
+    	$replay->body = $request->body;
+    	$replay->user()->associate(Sentinel::findById($user_id));
+    	$replay->parent_id = $comment->id;
+    	$product->comments()->save($replay);
+    	return back();
 
     }
 }
