@@ -20,6 +20,7 @@ class CommentsController extends Controller
 
     public function replay_store(Product $product, Comment $comment, Request $request)
     {
+        //dd($request->all());
     	$replay = new Comment;
     	$replay->body = $request->body;
     	$replay->user()->associate(Sentinel::getUser());

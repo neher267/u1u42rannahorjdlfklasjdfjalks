@@ -54,7 +54,7 @@
                     </div>
                 </div>
                 <div class="col-lg-8 single-right-left simpleCart_shelfItem">
-                    <h3>{{$product->name}}</h3>
+                    <h3 style="color: #AD1457">{{$product->name}}</h3>
                     <p>
                         <span class="item_price">৳ {{number_format($product->price,2)}}</span>
                         <!-- <del>$1,199</del> -->
@@ -84,7 +84,7 @@
 
                                 <input class="form-control" type="number" name="qty" style="width: 80px; display: inline; padding: 2px; border-radius: 4px; text-align: center;" value="1">
 
-                                <button type="submit" class="btn btn-sm" style="margin-bottom: 2px;">Add To <i class="fas fa-cart-plus"></i></button>
+                                <button type="submit" class="btn btn-sm" style="margin-bottom: 2px;">Add To <i class="fas fa-cart-plus color-primary"></i></button>
                             </form>
                         </div>
                     </div>
@@ -122,121 +122,85 @@
                 </div>
                 <div class="clearfix"> </div>
                 <!--/tabs-->
-                <div class="responsive_tabs col-md-8 col-sm-12">
-                    <div id="horizontalTab">
-                        <ul class="resp-tabs-list">
-                            <!-- <li>Description</li> -->
-                            <!-- <li>Informations </li> -->
-                            <li>Comments</li>
-                        </ul>
-                        <div class="resp-tabs-container">
-                            <!--/tab_one-->
-                            <!-- <div class="tab1">
-
-                                <div class="single_page" style="text-align: justify;">
-                                    <h6>{{$product->name}}</h6>
-                                    <div>
-                                        <?php //echo html_entity_decode($product->description) ?>
-                                    </div>
-                                </div>
-                            </div> -->
-                            <!--//tab_one-->
-                            <!-- <div class="tab2">
-
-                                <div class="single_page col-md-12" style="text-align: justify; width: 100%">
-                                    <h6>{{$product->name}}</h6>
-                                    <div>
-                                        <?php echo html_entity_decode($product->informations) ?>
-                                    </div>
-                                </div>
-                            </div> -->
-
-                            <div class="tab3">
-                                <div class="single_page">
-                                    <div class="bootstrap-tab-text-grids">
-                                        @include('frontend.partials._comments',['comments'=>$product->comments])
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="responsive_tabs col-md-8 col-sm-12" style="border:1px solid #e4e4e4;">
+                    @include('frontend.partials._comments',['comments'=>$product->comments])
                 </div>
                 <!--//tabs-->
                 <div class="clearfix"> </div>
-                <div class="col-md-4 col-sm-12 side-view">
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12">
-                            <div class="product-googles-info googles">
-                                <div class="men-pro-item">
-                                    <div class="men-thumb-item">
-                                        <img src="" class="img-fluid" alt="">
-                                        <div class="men-cart-pro">
-                                            <div class="inner-men-cart-pro">
-                                                <a href="" class="link-product-add-cart">Quick View</a>
-                                            </div>
+                <div class="col-md-4 col-sm-12 side-view">     
+                @foreach($product->category->products as $food)  
+                    <div class="row mt-lg-3 mt-0">
+                        <div class="product-googles-info col-md-12 col-sm-12">
+                        <div class="product-googles-info googles">
+                            <div class="men-pro-item">
+                                <div class="men-thumb-item">
+                                    <img src="{{asset($food->thumbnail)}}" class="img-fluid" alt="">
+                                    <div class="men-cart-pro">
+                                        <div class="inner-men-cart-pro">
+                                            <a href="{{route('food-detatils', $food)}}" class="link-product-add-cart">Quick View</a>
                                         </div>
-                                        <!-- <span class="product-new-top">New</span> -->
                                     </div>
-                                    <div class="item-info-product">
+                                    <!-- <span class="product-new-top">New</span> -->
+                                </div>
+                                <div class="item-info-product">
 
-                                        <div class="info-product-price">
-                                            <div class="grid_meta">
-                                                <div class="product_price">
-                                                    <h4 style="min-height: 57px;">
-                                                        <a class="color-primary" href=""></a>
-                                                    </h4>
-                                                    <div class="grid-price mt-2">
-                                                        <span class="money "> ৳ </span>
-                                                    </div>
+                                    <div class="info-product-price">
+                                        <div class="grid_meta">
+                                            <div class="product_price">
+                                                <h4 style="min-height: 57px;">
+                                                    <a class="color-primary" href="{{route('food-detatils', $food)}}">{{$food->name}}</a>
+                                                </h4>
+                                                <div class="grid-price mt-2">
+                                                    <span class="money "> ৳ {{$food->price}} </span>
                                                 </div>
-                                                <ul class="stars">
-                                                    <li>
-                                                        <a href="#">
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
                                             </div>
-                                            <div class="googles single-item hvr-outline-out">
-                                                <form action="" method="post">
-                                                    {{ csrf_field() }}
-
-                                                    <button type="submit" class="googles-cart pgoogles-cart">
-                                                        <i class="fas fa-cart-plus color-primary"></i>
-                                                    </button>
-
-                                                </form>
-                                            </div>
+                                            <ul class="stars">
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
                                         </div>
-                                        <div class="clearfix"></div>
+                                        <div class="googles single-item hvr-outline-out">
+                                            <form action="{{route('cart.add', $food)}}" method="post">
+                                                {{ csrf_field() }}
+
+                                                <button type="submit" class="googles-cart pgoogles-cart">
+                                                    <i class="fas fa-cart-plus color-primary"></i>
+                                                </button>
+
+                                            </form>
+                                        </div>
                                     </div>
+                                    <div class="clearfix"></div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>                        
                 </div>
-
+                @endforeach                    
+                </div>
             </div>
         </div>
     </div>

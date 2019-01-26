@@ -11,19 +11,24 @@
     </div>
     <div class="bootstrap-tab-text-grid-right comment-body">
         <ul>
-            <li><a href="#">{{$comment->user->name}}</a></li>
+            <li><strong>{{$comment->user->name}}</strong></li>
         </ul>
         <p class="comment-color">{{$comment->body}}</p>
     </div>
     <div class="bootstrap-tab-text-grid-right">
         <ul>
-            <li><a href="#">Rpelay</a> &bull; 10 s</li>
+            <li><a href="#" class="btn btn-xm">Rpelay</a> &bull;{{$comment->created_at->diffForHumans()}}</li>
         </ul>       
     </div>
     @include('frontend.partials._replay-form', ['comment'=>$comment])
     @foreach($comment->replies as $replay)
         @include('frontend.partials._comments2', ['replay'=>$replay])
-        @include('frontend.partials._replay-replay-form', ['comment'=>$comment, 'user'=>$replay->comment->user->id])    
+        @include('frontend.partials._replay-form', ['comment'=>$replay]) 
+
+        @foreach($replay->replies as $replay2)
+            @include('frontend.partials._comments2', ['replay'=>$replay2])
+            @include('frontend.partials._replay-form', ['comment'=>$replay2])  
+        @endforeach 
     @endforeach
     <div class="clearfix"> </div>
 </div>

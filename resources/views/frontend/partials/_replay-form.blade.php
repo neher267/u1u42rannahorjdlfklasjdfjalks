@@ -3,7 +3,7 @@
     @if(empty($user->profile_image))
     <i class="fa fa-user"></i>
     @else
-    <img src="{{asset($user->profile_image)}}" style="height: 32px; width: 32px; border-radius: 50%;">
+    <img src="{{asset($user->profile_image)}}" style="height: 20px; width: 20px; border-radius: 50%;">
     @endif
     <div class="bootstrap-tab-text-grid-right">
         <form method="post" action="{{route('comment.replay.store', [$product, $comment])}}">

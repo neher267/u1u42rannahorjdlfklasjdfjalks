@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Hr\Product;
+use Illuminate\Support\Facades\Cache;
 
 trait Filter{
 	public function filter()
@@ -12,18 +13,27 @@ trait Filter{
 		if (in_array(request('filter'), $keys)) {
 			switch (request('filter')) {
 				case 'popular':
-					return Product::orderBy('hit_count', 'dsc')->get();
+					return Cache::remember('popular', 10, function () {
+					    return Product::orderBy('hit_count', 'dsc')->get();
+					});
 					break;
 				case 'low':
-					return Product::orderBy('price', 'asc')->get();
+					return Cache::remember('price', 10, function () {
+					    return Product::orderBy('price', 'asc')->get();					
+					});
 					break;
-				case 'high':
-					return Product::orderBy('name', 'dsc')->get();
+				case 'high':					
+					return Cache::remember('high', 10, function () {
+					    return Product::orderBy('name', 'dsc')->get();				
+					});
 					break;
 			}
 		}
 		else{
-			return Product::orderBy('name', 'asc')->get();
+			return Cache::remember('products', 10, function () {
+			    return Product::orderBy('name', 'asc')->get();				
+			});
+			
 		}
 	}
 

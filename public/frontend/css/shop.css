@@ -606,7 +606,7 @@ ul.stars li a i:hover {
 }
 
 .product-googles-info {
-	padding: 15px;
+	padding: 10px;
 	border: 1px solid #e4e4e4;
 }
 
@@ -1189,11 +1189,10 @@ ul.footer_list_icons.single_in li a:hover {
 }
 
 .bootstrap-tab-text-grid-right ul li a {
-	font-size: 1em;
-    color: #ff4e00;
-	text-transform: uppercase;
-	text-decoration: none;
-	font-weight: 600;
+	font-size: 15px;
+    color: #AD1457;
+    text-decoration: none;
+    font-weight: 600;
 }
 
 .bootstrap-tab-text-grid-right ul li a:hover {
