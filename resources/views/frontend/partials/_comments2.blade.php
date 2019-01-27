@@ -14,7 +14,7 @@
     </div>
     <div class="bootstrap-tab-text-grid-right">
         <ul>
-            <li><a href="#" onclick="reply('<?php echo "raply$replay->id"; ?>')">Reply</a> &bull;<span class="small-tag">In Reply to {{$replay->parent->user->name}}</span></li>
+            <li><span class="reply-button color-primary" onclick="reply('<?php echo "reply$replay->id"; ?>')">Reply</span> &bull;<span class="small-tag">In Reply to {{$replay->parent->user->name}}</span></li>
         </ul>       
     </div>
     <div class="clearfix"> </div>

@@ -90,7 +90,7 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 		    $('.flash').delay(5000).fadeOut(1000);
-		} );
+		});
 	</script>
 
 
@@ -246,14 +246,6 @@
             });
         });
     </script>
-
-    <script type="text/javascript">
-	    function reply(id)
-	    {
-	    	//alert(id);
-	        $(id).css("display", "block");
-	    }
-	</script>
     
     <!--// end-smoth-scrolling -->
 

@@ -15,7 +15,7 @@
     <div class="clearfix"> </div>
 </div>
 @else
-<div class="bootstrap-tab-text-grid replay">
+<div class="bootstrap-tab-text-grid replay" id="reply{{$comment->id}}" style="display: none;">
     <div class="bootstrap-tab-text-grid-left">
         <i class="fa fa-user"></i>
     </div>

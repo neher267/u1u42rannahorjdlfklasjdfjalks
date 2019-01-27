@@ -31,7 +31,8 @@ class PublicController extends Controller
     public function menu_item_details(Product $product){
         $page_title = $product->name;
         $current_page = "Menu";
-        return view('frontend.pages.product-details', compact('product','page_title'));
+        $categories = Category::orderBy('name')->get();
+        return view('frontend.pages.product-details', compact('product','page_title','categories'));
     }
 
     public function menu(){
@@ -40,7 +41,7 @@ class PublicController extends Controller
         $count = $results->count();
         $foods = $results->chunk(4);
 
-        return view('frontend.pages.index', compact('foods', 'count', 'page_title'));
+        return view('frontend.pages.menu', compact('foods', 'count', 'page_title'));
     }
 
 
@@ -71,9 +72,15 @@ class PublicController extends Controller
         return view('frontend.gifts', compact('gifts', 'claims'));
     }
 
+    public function categories(){
+        $page_title = 'Categories';
+        return back();
+    }
 
-    public function category_types(Category $category)
+
+    public function category_foods(Category $category)
     {
+        $page_title = $category->name.' all foods';
         $results = $category->products()->get();
         $count = $results->count();
         $products = $results->chunk(4);

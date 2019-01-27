@@ -606,8 +606,7 @@ ul.stars li a i:hover {
 }
 
 .product-googles-info {
-	padding: 10px;
-	border: 1px solid #e4e4e4;
+	padding: 5px;	
 }
 
 /*-- //effect on products --*/
@@ -1330,7 +1329,7 @@ span.item_price {
 }
 
 .responsive_tabs {
-	margin-top: 4em;
+	margin-top: 2em;
 }
 
 .new_arrivals h3 {
@@ -1467,7 +1466,7 @@ span.item_price {
 		margin: 1em 0;
 	}
 	.bootstrap-tab-text-grid-right p {
-		margin: 1em 0 0;
+		margin: 0px;
 	}
 	#staplesbmincart {
 		left: 52%;

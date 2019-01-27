@@ -6,35 +6,41 @@
         <div class="inner_sec" style="margin-bottom: 30px">
             <p class="sub text-center mb-lg-5 mb-3">{{$page_title}}</p>
             <div class="address row">
-				<table class="table table-striped">
-					<thead>
-						<tr>
-							<th>Sr.No</th>
-							<th>Orderd Time</th>
-							<th>Shipping Address</th>
-							<th>Order Status</th>
-						</tr>
-					</thead>
-					<tbody>
-						<?php $i=0 ?>
-						@foreach($orders as $order)
-						<tr>
-							<td>{{++$i}}</td>
-							<td>{{$order->created_at->diffForHumans()}}</td>
-							<td>{{$order->s_address}}</td>
-							<td>
+				@if(sizeof($orders))                            
+                <table class="timetable_sub">
+                    <thead>
+                        <tr>
+                            <th>Sr.No</th>
+							<th>Time</th>
+							<th>Address</th>
+							<th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    	<?php $i=0; ?>
+                        @foreach($orders as $order)
+                        <tr class="rem1">   
+                        	<td class="invert">{{++$i}}</td>                      
+                            <td class="invert">{{$order->created_at->diffForHumans()}}</td>
+							<td class="invert">{{$order->s_address}}</td>
+							<td class="invert">
 								@if($order->status==0)
-								<span>Pending</span>
+								<span class="badge" style="background: #337ab7; color: #fff;">Pending</span>
 								@elseif($order->status==1)
-								<span>Confirmed</span>
+								<span class="badge" style="background: green; color: #fff;">Confirmed</span>
 								@elseif($order->status==2)
-								<span>Canceled</span>
+								<span class="badge" style="background: #AD1457; color: #fff;">Canceled</span>
 								@endif
-							</td>
-						</tr>	
-						@endforeach			      
-					</tbody>
-				</table>
+							</td>                                                        
+                        </tr> 
+                        @endforeach                        
+                    </tbody>                    
+                </table>
+                @else
+                <p class="text-center"><a style="color: #AD1457" href="{{url('menu')}}" class="nav-style">
+                    <i class="fa fa-shopping-cart"></i> Continue Shopping
+                </a></p>
+                @endif
             </div>
         </div>
     </div>

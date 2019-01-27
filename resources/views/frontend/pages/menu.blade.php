@@ -1,9 +1,11 @@
-@extends('frontend.master') @section('content')
+@extends('frontend.master')
 
+@section('content')
 <section class="banner-bottom-wthreelayouts py-3">
-    <div class="container-fluid">
+    <div class="inner_sec">
+        <p class="sub text-center mb-lg-5 mb-3">Find Your Foods</p>
+        <div class="container-fluid container-fluid2">
         <div class="inner-sec-shop px-lg-4 px-3">
-
             <div class="sorting">
                 <ul class="w_nav">
                     <li>Sort : </li>
@@ -29,7 +31,6 @@
                                             <a href="{{route('food-detatils', $food)}}" class="link-product-add-cart">Quick View</a>
                                         </div>
                                     </div>
-                                    <!-- <span class="product-new-top">New</span> -->
                                 </div>
                                 <div class="item-info-product" style="border: 1px solid #e4e4e4; padding-left: 5px;">
                                     <div class="info-product-price">
@@ -91,6 +92,7 @@
             @endforeach
         </div>
     </div>
+    </div>
+    
 </section>
-
 @endsection

@@ -6,21 +6,14 @@
 |--------------------------------------------------------------------------
 |
 */
-use App\Models\Hr\Product;
-
-Route::get('comments', function(){
-	$product = Product::find(1);
-	$page_title = 'Comments';
-	return view('comments', compact('product', 'page_title'));
-});
-
-
 
 
 Route::get('/', 'PublicController@index');
 Route::get('contact', 'PublicController@contact_us');
 Route::get('all-gifts', 'PublicController@gifts');
 Route::get('all-gifts/{gift}', 'PublicController@gift_details');
+Route::get('categories','PublicController@categories');
+Route::get('categories/{category}/foods','PublicController@category_foods')->name('category.foods');
 Route::get('/{category}/types','PublicController@category_types');
 Route::get('{product}/packages', 'PublicController@product_packages');
 Route::get('details','PublicController@details');

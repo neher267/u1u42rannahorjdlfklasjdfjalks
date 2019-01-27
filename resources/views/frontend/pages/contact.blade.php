@@ -15,7 +15,7 @@
                         </div>
                         <div class="col-md-9 address-right text-left">
                             <h6>Address</h6>
-                            <p>{{config('settings.address')}}</p>
+                            <p class="category-name">{{config('settings.address')}}</p>
                         </div>
                     </div>
 
@@ -27,10 +27,7 @@
                         </div>
                         <div class="col-md-9 address-right text-left">
                             <h6>Email</h6>
-                            <p>Email :
-                                <a href="mailto:{{config('settings.email')}}">{{config('settings.email')}}</a>
-
-                            </p>
+                            <p class="category-name">{{config('settings.email')}}</p>
                         </div>
 
                     </div>
@@ -42,7 +39,7 @@
                         </div>
                         <div class="col-md-9 address-right text-left">
                             <h6>Phone</h6>
-                            <p>{{config('settings.mobile')}}</p>
+                            <p class="category-name">{{config('settings.mobile')}}</p>
 
                         </div>
 
