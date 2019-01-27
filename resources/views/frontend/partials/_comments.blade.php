@@ -17,7 +17,7 @@
     </div>
     <div class="bootstrap-tab-text-grid-right">
         <ul>
-            <li><a href="#" class="btn btn-xm">Rpelay</a> &bull;{{$comment->created_at->diffForHumans()}}</li>
+            <li><a href="#" onclick="reply('<?php echo "raply$comment->id"; ?>')">Reply</a> &bull;<span class="small-tag">{{$comment->created_at->diffForHumans()}}</span></li>
         </ul>       
     </div>
     @include('frontend.partials._replay-form', ['comment'=>$comment])

@@ -246,6 +246,14 @@
             });
         });
     </script>
+
+    <script type="text/javascript">
+	    function reply(id)
+	    {
+	    	//alert(id);
+	        $(id).css("display", "block");
+	    }
+	</script>
     
     <!--// end-smoth-scrolling -->
 

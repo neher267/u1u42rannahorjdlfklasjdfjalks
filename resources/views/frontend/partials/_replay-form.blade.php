@@ -1,5 +1,5 @@
 @if($user=Sentinel::check())
-<div class="bootstrap-tab-text-grid replay">
+<div class="bootstrap-tab-text-grid replay" id="reply{{$comment->id}}" style="display: none;">
     @if(empty($user->profile_image))
     <i class="fa fa-user"></i>
     @else
