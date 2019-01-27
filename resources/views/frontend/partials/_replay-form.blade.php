@@ -9,7 +9,7 @@
         <form method="post" action="{{route('comment.replay.store', [$product, $comment])}}">
             {{ csrf_field() }}
 
-            <input class="form-control" type="text" name="body" style="border-radius: 18px; padding: 4px 10px;" placeholder="Write a replay..">
+            <input class="form-control" type="text" name="body" style="border-radius: 18px; padding: 4px 10px;" placeholder="Write a reply..">
         </form>
     </div>
     <div class="clearfix"> </div>

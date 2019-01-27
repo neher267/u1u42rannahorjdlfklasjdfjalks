@@ -24,11 +24,14 @@ class SentinelLoginController extends Controller
         //     return back();
         // }
 
-
+        $previous_url = $request->session()->get('_previous');
         Sentinel::authenticate($request->all());
     	if( $user = Sentinel::check())
     	{
             if ($user->roles()->first()->slug == 'customer') {
+                if ($url = $previous_url['url']) {
+                    return redirect($url);
+                }
                 return redirect('checkout');
             }
             else{

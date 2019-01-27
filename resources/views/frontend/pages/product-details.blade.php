@@ -111,7 +111,7 @@
                                         <img src="{{asset($category->thumbnail)}}" class="img-fluid" alt="">
                                         <div class="men-cart-pro">
                                             <div class="inner-men-cart-pro">
-                                                <a href="#" class="link-product-add-cart">Products</a>
+                                                <a href="{{route('category.foods', $category)}}" class="link-product-add-cart">Products</a>
                                             </div>
                                         </div>
                                         <!-- <span class="product-new-top">New</span> -->
@@ -119,7 +119,7 @@
                                     <div class="item-info-product">
                                         <div class="info-product-price">
                                             <p class="text-center category-name">
-                                                <a class="color-primary" href="#">{{$category->name}}</a>
+                                                <a class="color-primary" href="{{route('category.foods', $category)}}">{{$category->name}}</a>
                                             </p>                                        
                                         </div>
                                         <div class="clearfix"></div>

@@ -34,6 +34,7 @@ Route::group(['middleware'=>['sentinel.auth']], function(){
 	Route::get('profile-update','ProfileController@edit');
 	Route::post('profile-update','ProfileController@update');
 	Route::get('my-orders','PublicController@my_orders');
+	Route::get('my-orders/{order}','PublicController@order_details')->name('my-orders.details');
 	Route::post('products/{product}/comments','CommentsController@store')->name('product.comment.store');
 	Route::post('products/{product}/comments/{comment}/replay','CommentsController@replay_store')->name('comment.replay.store');
 	Route::post('products/{product}/comments/{comment}/replay/{user}','CommentsController@replay_replay_store')->name('replay.replay.store');

@@ -17,11 +17,10 @@
                             @endif
                         </div>
                         <div class="col-md-9 address-right text-left">
-                            <p><strong>Name: </strong>{{$user->name}}</p>
-                            <p><strong>Email: </strong>{{$user->email}}</p>
+                            <p>Name: <span class="category-name">{{$user->name}}</span></p>
+                            <p>Email: <span class="category-name">{{$user->email}}</span></p>
                         </div>
                     </div>
-
                 </div>
                 <div class="col-lg-4 address-grid">
                     <div class="row address-info">
@@ -30,11 +29,8 @@
                         </div>
                         <div class="col-md-9 address-right text-left" style="min-height: 62px;">
                             <h6>Address</h6>
-                            <p>
-                                {{$user->address}}
-                            </p>
+                            <p class="category-name">{{$user->address}}</p>
                         </div>
-
                     </div>
                 </div>
                 <div class="col-lg-4 address-grid">
@@ -44,7 +40,7 @@
                         </div>
                         <div class="col-md-9 address-right text-left" style="min-height: 62px;">
                             <h6>Mobile</h6>
-                            <p>{{$user->mobile}}</p>
+                            <p class="category-name">{{$user->mobile}}</p>
 
                         </div>
 

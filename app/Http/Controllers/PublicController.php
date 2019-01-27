@@ -8,6 +8,7 @@ use App\Models\Hr\Product;
 use App\Models\Hr\Package;
 use App\Models\Settings\Gift;
 use App\Image;
+use App\Order;
 use Sentinel;
 
 class PublicController extends Controller
@@ -81,10 +82,10 @@ class PublicController extends Controller
     public function category_foods(Category $category)
     {
         $page_title = $category->name.' all foods';
-        $results = $category->products()->get();
-        $count = $results->count();
-        $products = $results->chunk(4);
-        return view('frontend.category-products', compact('products', 'count'));
+        //$results = $category->products()->get();
+        //$count = $results->count();
+        $foods = $category->products()->get()->chunk(4);
+        return view('frontend.pages.category-products', compact('foods', 'page_title'));
     }
 
     public function product_packages(Product $product) {
@@ -119,5 +120,16 @@ class PublicController extends Controller
         $page_title = "My Orders";
         $orders = Sentinel::getUser()->myOrders;
         return view('frontend.pages.customer-orders', compact('page_title', 'orders'));
+    }
+
+    public function order_details(Order $order)
+    {
+        $page_title = "Details";
+        if(Sentinel::getUser()->id == $order->user_id){
+            $details = $order->order_details;        
+            return view('frontend.pages.customer-orders', compact('page_title', 'orders'));
+        }
+
+        return back();   
     }
 }

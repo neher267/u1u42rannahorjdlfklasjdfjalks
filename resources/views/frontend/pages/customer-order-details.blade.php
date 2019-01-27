@@ -19,7 +19,7 @@
                     </thead>
                     <tbody>
                     	<?php $i=0; ?>
-                        @foreach($orders as $order)
+                        @foreach($details as $order)
                         <tr class="rem1">   
                         	<td class="invert">{{++$i}}</td>                      
                             <td class="invert">{{$order->created_at->diffForHumans()}}</td>
