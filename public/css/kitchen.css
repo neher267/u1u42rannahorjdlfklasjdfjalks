@@ -37,6 +37,13 @@
     padding-right: 5px;
 }
 
+.image3{
+    height: 50px; 
+    width: 60px; 
+    border-radius:4px; 
+    margin: 1px;
+}
+
 @media (min-width: 320px) and (max-width: 480px) {
     #manage_qty{
         display: inline-block;

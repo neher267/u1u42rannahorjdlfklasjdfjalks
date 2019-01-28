@@ -6,15 +6,15 @@
         <div class="inner_sec" style="margin-bottom: 30px">
             <p class="sub text-center mb-lg-5 mb-3">{{$page_title}}</p>
             <div class="address row">
-				@if(sizeof($orders))                            
+				@if(sizeof($details))                            
                 <table class="timetable_sub">
                     <thead>
                         <tr>
                             <th>Sr.No</th>
-							<th>Time</th>
-							<th>Address</th>
-                            <th>Status</th>
-							<th>Actions</th>
+							<th>Image</th>
+							<th>Name</th>
+                            <th>Quantity</th>
+							<th>Price</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -22,28 +22,19 @@
                         @foreach($details as $order)
                         <tr class="rem1">   
                         	<td class="invert">{{++$i}}</td>                      
-                            <td class="invert">{{$order->created_at->diffForHumans()}}</td>
-							<td class="invert">{{$order->s_address}}</td>
+                            <td class="invert-image">
+                                <img src="{{asset($order->product->thumbnail)}}" alt="{{$order->product->name}}" class="img-responsive image3">
+                            </td>
+                            <td class="invert">{{$order->product->name}}</td>
+                            <td class="invert">{{$order->quantity}}</td>
 							<td class="invert">
-								@if($order->status==0)
-								<span class="badge" style="background: #337ab7; color: #fff;">Pending</span>
-								@elseif($order->status==1)
-								<span class="badge" style="background: green; color: #fff;">Confirmed</span>
-								@elseif($order->status==2)
-								<span class="badge" style="background: #AD1457; color: #fff;">Canceled</span>
-								@endif
-							</td> 
-                            <td>
-                                <a href="{{route('my-orders.details', $order)}}" class="btn btn-default color-primary">Details</a>
-                            </td>                                                       
+                                {{$order->quantity}}x{{$order->price}} = {{$order->price * $order->quantity}}
+                                <span style="font-size: 12px">৳</span>
+                            </td>						
                         </tr> 
                         @endforeach                        
                     </tbody>                    
                 </table>
-                @else
-                <p class="text-center"><a style="color: #AD1457" href="{{url('menu')}}" class="nav-style">
-                    <i class="fa fa-shopping-cart"></i> Continue Shopping
-                </a></p>
                 @endif
             </div>
         </div>

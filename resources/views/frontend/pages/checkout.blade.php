@@ -33,9 +33,7 @@
                                 </form>                                
                             </td>
                             <td class="invert-image">
-                                <a href="single.html">
-                                    <img src="{{asset($food->options->image)}}" alt=" " class="img-responsive" style="height: 50px; width: 60px; border-radius: 4px; margin: 1px">
-                                </a>
+                                <img src="{{asset($food->options->image)}}" alt="{{$food->name}}" class="img-responsive image3">
                             </td>
                             <td class="invert">{{$food->name}}</td>
                             <td>

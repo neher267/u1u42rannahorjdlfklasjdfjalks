@@ -126,7 +126,7 @@ class PublicController extends Controller
     {
         $page_title = "Details";
         if(Sentinel::getUser()->id == $order->user_id){
-            $details = $order->order_details;        
+            $details = $order->order_details;  
             return view('frontend.pages.customer-order-details', compact('page_title', 'details'));
         }
 
