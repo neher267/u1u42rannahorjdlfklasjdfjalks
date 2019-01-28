@@ -118,7 +118,7 @@ class PublicController extends Controller
     public function my_orders()
     {
         $page_title = "My Orders";
-        $orders = Sentinel::getUser()->myOrders;
+        $orders = Sentinel::getUser()->myOrders()->latest()->paginate(10);
         return view('frontend.pages.customer-orders', compact('page_title', 'orders'));
     }
 
@@ -127,7 +127,7 @@ class PublicController extends Controller
         $page_title = "Details";
         if(Sentinel::getUser()->id == $order->user_id){
             $details = $order->order_details;        
-            return view('frontend.pages.customer-orders', compact('page_title', 'orders'));
+            return view('frontend.pages.customer-order-details', compact('page_title', 'details'));
         }
 
         return back();   

@@ -29,6 +29,7 @@
 	<link href="{{asset('frontend/css/style.css')}}" rel='stylesheet' type='text/css' />
 
 	<link rel="stylesheet" href="{{asset('css/kitchen.css')}}" type="text/css">
+	<link rel="stylesheet" href="{{asset('css/custom.css')}}" type="text/css">
 
 	<link href="{{asset('frontend/css/fontawesome-all.css')}}" rel="stylesheet">
 	<link href="//fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
